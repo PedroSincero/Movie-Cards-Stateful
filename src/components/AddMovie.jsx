@@ -14,7 +14,7 @@ class AddMovies extends Component {
     };
   }
 
-  HandleTitle = ({ target }) => {
+  HandleSearch = ({ target }) => {
     const { id, value } = target;
     this.setState({
       [id]: value,
@@ -27,7 +27,22 @@ class AddMovies extends Component {
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
           Título
-          <input id="title" value={ title } onChange={ this.HandleTitle } data-testid="title-input" />
+          <input
+            id="title"
+            value={ title }
+            onChange={ this.HandleSearch }
+            data-testid="title-input"
+          />
+        </label>
+
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            id="subtitle"
+            value={ subtitle }
+            onChange={ this.HandleSearch }
+            data-testid="subtitle-input"
+          />
         </label>
       </form>
     );
