@@ -28,6 +28,7 @@ class AddMovies extends Component {
         <label htmlFor="title" data-testid="title-input-label">
           Título
           <input
+            type="text"
             id="title"
             value={ title }
             onChange={ this.HandleSearch }
@@ -38,6 +39,7 @@ class AddMovies extends Component {
         <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
+            type="text"
             id="subtitle"
             value={ subtitle }
             onChange={ this.HandleSearch }
@@ -45,15 +47,16 @@ class AddMovies extends Component {
           />
         </label>
 
-        {/* <label htmlFor="imagePath" data-testid="image-input-label">
+        <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
+            type="text"
             id="imagePath"
             value={ imagePath }
             onChange={ this.HandleSearch }
-            data-testid="title-input"
+            data-testid="image-input"
           />
-        </label> */}
+        </label>
       </form>
     );
   }
