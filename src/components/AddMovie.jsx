@@ -44,6 +44,16 @@ class AddMovies extends Component {
             data-testid="subtitle-input"
           />
         </label>
+
+        {/* <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem
+          <input
+            id="imagePath"
+            value={ imagePath }
+            onChange={ this.HandleSearch }
+            data-testid="title-input"
+          />
+        </label> */}
       </form>
     );
   }
