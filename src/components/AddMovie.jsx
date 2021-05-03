@@ -14,11 +14,21 @@ class AddMovies extends Component {
     };
   }
 
+  HandleTitle = ({ target }) => {
+    const { id, value } = target;
+    this.setState({
+      [id]: value,
+    });
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <input />
+        <label htmlFor="title" data-testid="title-input-label">
+          Título
+          <input id="title" value={ title } onChange={ this.HandleTitle } data-testid="title-input" />
+        </label>
       </form>
     );
   }
