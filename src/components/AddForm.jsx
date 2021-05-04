@@ -7,11 +7,12 @@ class AddForm extends Component {
         Título
         <input
           id="title"
-          value={title}
-          onChange={this.HandleSearch}
+          value={ title }
+          onChange={ this.HandleSearch }
           data-testid="title-input"
         />
-      )
+      </label>
+    );
   }
 }
 
