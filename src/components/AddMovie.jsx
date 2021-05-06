@@ -37,68 +37,61 @@ class AddMovies extends Component {
 
   AtribbuteTest = (name) => {
     if (name === 'title') {
-      return ('title-input');
+      return ('Titulo');
     }
     if (name === 'subtitle') {
-      return ('subtitle-input');
+      return ('Subtítulo');
     }
     if (name === 'imagePath') {
-      return ('image-input');
+      return ('Imagem');
     }
     if (name === 'storyline') {
-      return ('storyline-input');
+      return ('Sinopse');
     }
     if (name === 'rating') {
-      return ('rating-input');
-    }
-    if (name === 'genre') {
-      return ('genre-input');
+      return ('Avaliação');
     }
   }
 
-  AttributeTitleNew = (name, value, onChange, type) => {
+  AttributeTitleNew = (name, value, type) => {
     if (type !== 'textarea') {
-      return (<input
-        name={ name }
-        value={ value }
-        onChange={ onChange }
-        type={ type }
-        data-testid={ this.AtribbuteTest(name) }
-      />);
+      return (
+        <label htmlFor={ name } data-testid={ `${name}-input-label` }>
+          {this.AtribbuteTest(name)}
+          <input
+            name={ name }
+            value={ value }
+            onChange={ this.HandleSearch }
+            type={ type }
+            data-testid={ `${name}-input` }
+          />
+        </label>
+      );
+      // utilização de crase `${}`
     }
 
-    return (<textarea
-      name={ name }
-      value={ value }
-      onChange={ onChange }
-      data-testid={ this.AtribbuteTest(name) }
-    />);
+    return (
+      <label htmlFor={ name } data-testid={ `${name}-input-label` }>
+        {this.AtribbuteTest(name)}
+        <textarea
+          name={ name }
+          value={ value }
+          onChange={ this.HandleSearch }
+          data-testid={ `${name}-input` }
+        />
+      </label>
+    );
   }
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          {this.AttributeTitleNew('title', title, this.HandleSearch, 'text')}
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          {this.AttributeTitleNew('subtitle', subtitle, this.HandleSearch, 'text')}
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          {this.AttributeTitleNew('imagePath', imagePath, this.HandleSearch, 'text')}
-        </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          {this.AttributeTitleNew('storyline', storyline, this.HandleSearch, 'textarea')}
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          {this.AttributeTitleNew('rating', rating, this.HandleSearch, 'number')}
-        </label>
+        {this.AttributeTitleNew('title', title, 'text')}
+        {this.AttributeTitleNew('subtitle', subtitle, 'text')}
+        {this.AttributeTitleNew('imagePath', imagePath, 'text')}
+        {this.AttributeTitleNew('storyline', storyline, 'textarea')}
+        {this.AttributeTitleNew('rating', rating, 'number')}
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
           <select

@@ -12,5 +12,5 @@ function App() {
     </div>
   );
 }
-
+// Agradecimentos A: Daniel Robeito, Denis, Matheus Gois, Henrique Zozimo, Lucas Portella, Jefferson Andrade, Renan Antunes e as pessoas que eu n me lembro o nome, muitissimo obrigado.
 export default App;
